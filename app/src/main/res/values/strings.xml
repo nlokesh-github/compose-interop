@@ -3,7 +3,7 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="splash_view_fragment_label">Jetpack Compose Playground</string>
-    <string name="compose_view_fragment_label">Compose View Inter-op</string>
     <string name="android_view_fragment_label">Android View Inter-op</string>
+    <string name="compose_view_fragment_label">Compose View Inter-op</string>
 
 </resources>

@@ -5,4 +5,8 @@
         android:id="@+id/AndroidView"
         android:title="AndroidView" />
 
+    <item
+        android:id="@+id/ComposeView"
+        android:title="ComposeView" />
+
 </menu>
