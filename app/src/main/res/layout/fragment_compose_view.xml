@@ -13,7 +13,7 @@
         android:gravity="center"
         android:textColor="?attr/colorPrimary"
         android:focusable="true"
-        android:text="View Text" />
+        android:text="View Text in XML" />
 
     <androidx.compose.ui.platform.ComposeView
         android:id="@+id/compose_view"
@@ -24,6 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="View Button" />
+        android:text="View Button in XML" />
 
 </LinearLayout>

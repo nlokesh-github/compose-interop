@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -63,7 +64,16 @@ class AndroidViewInterOpFragment : Fragment() {
         ) {
             Text(
                 statusText,
-                modifier = Modifier.focusable(true)
+                modifier = Modifier
+                    .onFocusChanged {
+                        if (it.hasFocus) {
+                            statusText = "Status Text has focus"
+                        }
+                    }
+                    .focusable(true).clickable {
+                    statusText = "Status Text is clicked"
+                },
+
             )
 
             // Swap true/false to easily try with and without the AndroidView focusable modifier
@@ -105,7 +115,13 @@ class AndroidViewInterOpFragment : Fragment() {
 
             Text(
                 "Composable Text",
-                modifier = Modifier.focusable()
+                modifier = Modifier
+                    .onFocusChanged {
+                        if (it.hasFocus) {
+                            statusText = "Composable Text has focus"
+                        }
+                    }
+                    .focusable()
             )
 
             Button(

@@ -8,7 +8,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Button" />
+        android:focusable="true"
+        android:text="View Button in view binding" />
 
 
     <androidx.cardview.widget.CardView
@@ -22,7 +23,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:focusable="true"
-            android:text="View Text" />
+            android:text="View Text in view binding" />
     </androidx.cardview.widget.CardView>
 
 
