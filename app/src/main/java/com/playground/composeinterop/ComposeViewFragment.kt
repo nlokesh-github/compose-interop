@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
 import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,28 +38,37 @@ class ComposeViewFragment : Fragment() {
     @Composable
     fun FocusComposeView() {
         var statusText by remember { mutableStateOf("Composable Text 0") }
-
         Column(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .focusable(),
             verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 statusText,
-                modifier = Modifier.focusable(true)
+                modifier = Modifier.onFocusChanged {
+                    if (it.hasFocus) {
+                        statusText = "Composable statusText has focus"
+                    }
+                }.focusable()
             )
 
             Text(
                 "Composable Text1",
-                modifier = Modifier.focusable()
+                modifier = Modifier.onFocusChanged {
+                    if (it.hasFocus) {
+                        statusText = "Composable Text1 has focus"
+                    }
+                }.focusable()
             )
 
-            Button(
+            TextButton(
                 modifier = Modifier.onFocusChanged {
                     if (it.hasFocus) {
                         statusText = "Composable Button has focus"
                     }
-                },
+                }.focusable(),
                 onClick = {
                     statusText = "Composable Button clicked"
                 }) {
@@ -68,7 +77,11 @@ class ComposeViewFragment : Fragment() {
 
             Text(
                 "Composable Text2",
-                modifier = Modifier.focusable()
+                modifier = Modifier.onFocusChanged {
+                    if (it.hasFocus) {
+                        statusText = "Composable Text2 has focus"
+                    }
+                }.focusable()
             )
         }
     }

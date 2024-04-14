@@ -70,14 +70,14 @@ class AndroidViewInterOpFragment : Fragment() {
                             statusText = "Status Text has focus"
                         }
                     }
-                    .focusable(true).clickable {
+                    .focusable().clickable {
                     statusText = "Status Text is clicked"
                 },
 
             )
 
             // Swap true/false to easily try with and without the AndroidView focusable modifier
-            val setAndroidViewFocusable = true
+            val setAndroidViewFocusable = false
             val androidViewModifier = if (setAndroidViewFocusable) {
                 Modifier
                     .onFocusChanged {
@@ -88,6 +88,11 @@ class AndroidViewInterOpFragment : Fragment() {
                     .focusable()
             } else {
                 Modifier
+                    .onFocusChanged {
+                        if (it.hasFocus) {
+                            statusText = "AndroidView has focus"
+                        }
+                    }
             }
             //
             AndroidView(
@@ -122,6 +127,9 @@ class AndroidViewInterOpFragment : Fragment() {
                         }
                     }
                     .focusable()
+                    .clickable {
+                        statusText = "Composable Text is clicked"
+                    }
             )
 
             Button(
